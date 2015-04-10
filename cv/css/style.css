@@ -1,5 +1,0 @@
-@CHARSET "ISO-8859-1";
-li:hover ul {
-/* Au survol des li du menu on replace les sous menus */
-    left: auto;
-}
