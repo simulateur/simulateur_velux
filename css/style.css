@@ -1,4 +1,59 @@
 @CHARSET "ISO-8859-1";
+body{
+	height:1000px;
+	width:1250px;
+	border:1px solid black;
+	margin:0px auto;
+	
+}
+
+.imprimer{
+	margin-left:700px;
+	margin-top:5px;
+	
+}
+
 select{
 	display:inline;
+
+	
+}
+form.renommer{
+	margin-left:5px;
+	
+}
+
+.estimation{
+	height:500px;
+	width:800px;
+	border:1px solid black;
+	margin-left:200px;
+	margin-top:150px;
+	
+	
+	
+	
+}
+.boutSubEstimer{
+	margin-left:700px;
+	margin-top:50px;
+}
+.colonneGauche{
+	height:1000px;
+	width:200px;
+	border:1px solid black;
+	
+}
+.style{
+	border-collapse:collapse;
+}
+.traitement{
+	margin-left:200px;
+}
+@media print {
+	.imprimer{
+		visibility:hidden;
+		margin-left:700px;
+		margin-top:5px;
+	}
 }

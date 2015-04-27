@@ -4,7 +4,7 @@ function formulaire(){
 	 include'param/id.inc.php';
 ?>
 	<!-- formulaire permettant d'estimer le remplacement de velux -->
-	<form name="estimer" id="estimer" action="http://localhost/simulateur_velux/estimateur.php" method="post" enctype="multipart/form-data">
+	<form name="estimer" id="estimer" style=" width:800px;height:200px;margin:0px auto;margin-left:5px;"action="http://localhost/simulateur_velux/estimateur.php" method="post" enctype="multipart/form-data">
 	<?php try {
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 				$bdd = new PDO('mysql:host='.$hote.';dbname='.$base,$utilisateur,$mdp);?>
@@ -58,7 +58,7 @@ function formulaire(){
 						while ($donnees = $selection_type->fetch()) { ?>
 							<option value="<?php echo $donnees['id_type']?>"><?php echo $donnees['libelle_type']?></option>
 					<?php }?>
-					</select>
+					</select><br/><br/>
 					<select name="selectTuile" id="selectTuile">
 					<option value="0" name="tuile" id="tuile">Tuile</option>
 						<?php
@@ -95,17 +95,16 @@ function formulaire(){
 			catch (Exception $erreur) {
 				die('Erreur : '.$erreur->getMessage());
 			}
-				?>
-			<input type="hidden" name="nomVelux" id="nomVelux" value="<?php echo $_SESSION['nomFenetre']?>">
-			<input type="reset" name="boutResEstimer" id="boutResEstimer" value="Annuler">
-			<input type="submit" name="boutSubEstimer" id="boutSubEstimer" value="Estimer">
+				?><br/>
+			<input type="hidden" name="nomVelux" id="nomVelux" value="<?php echo $_SESSION['nomFenetre']?>"><br/>
+			<input type="submit" class="boutSubEstimer"name="boutSubEstimer" id="boutSubEstimer" value="Estimer">
 		</form><?php
 }
 /* fonction permettant d'afficher un formulaire contenant les champs avec les informations selectionnées*/
 function formulaireSub($veluxActuel,$taille,$finition,$ouverture,$type,$raccord,$volet,$store,$couleur){
 	include'param/id.inc.php';
 ?>
-	<form name="estimer" id="estimer" action="http://localhost/simulateur_velux/estimateur.php" method="post" enctype="multipart/form-data">
+	<form name="estimer" id="estimer" style="margin-left:5px"action="http://localhost/simulateur_velux/estimateur.php" method="post" enctype="multipart/form-data">
 	<?php try {
 		$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 				$bdd = new PDO('mysql:host='.$hote.';dbname='.$base,$utilisateur,$mdp);?>
@@ -184,7 +183,7 @@ function formulaireSub($veluxActuel,$taille,$finition,$ouverture,$type,$raccord,
 							?><option value="<?php echo $donnees['id_type']?>"><?php echo $donnees['libelle_type']?></option>
 				<?php 		} 
 						}?>
-					</select>
+					</select><br/><br/>
 					<select name="selectTuile" id="selectTuile">
 					<option value="0" name="tuile" id="tuile">Tuile</option>
 						<?php
@@ -258,9 +257,8 @@ function formulaireSub($veluxActuel,$taille,$finition,$ouverture,$type,$raccord,
 				die('Erreur : '.$erreur->getMessage());
 			}
 				?>
-			<input type="hidden" name="nomVelux" id="nomVelux" value="<?php echo $_SESSION['nomFenetre']?>">
-			<input type="reset" name="boutResEstimer" id="boutResEstimer" value="Annuler">
-			<input type="submit" name="boutSubEstimer" id="boutSubEstimer" value="Estimer">
+			<input type="hidden" name="nomVelux" id="nomVelux" value="<?php echo $_SESSION['nomFenetre']?>"><br/><br/>
+			<input type="submit" name="boutSubEstimer" id="boutSubEstimer"style="margin-left:400px;" value="Estimer">
 		</form><?php
 }
 /*fonction permettant d'interagir avec la bdd pour realiser l'estimation*/
